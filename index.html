@@ -410,20 +410,28 @@
         <!-- Draggable Juxtapose Slider -->
         <div id="comparison-slider-container" class="comparison-container mb-8 sm:mb-10">
           <div class="comparison-image-wrapper">
-            <img src="assets/images/tank_slider_before.jpg" alt="Dirty Water Tank Before True Shine" class="comparison-image">
-            <span class="slider-badge slider-badge-before">⚠️ BEFORE: Sludge</span>
+            <!-- 1. BASE LAYER: 100% Sanitized (Clean Tank) - Visible on Right -->
+            <img src="assets/images/tank_slider_after.jpg" alt="Clean Water Tank After True Shine Sanitization" class="comparison-image">
 
-            <div class="comparison-overlay">
-              <img src="assets/images/tank_slider_after.jpg" alt="Clean Water Tank After True Shine" class="comparison-image">
-              <span class="slider-badge slider-badge-after">✨ AFTER: Sanitized</span>
+            <!-- 2. OVERLAY LAYER: Untreated Sludge (Dirty Tank) - Visible on Left (Clipped) -->
+            <div class="comparison-overlay" id="comparison-overlay">
+              <img src="assets/images/tank_slider_before.jpg" alt="Dirty Water Tank Before True Shine" class="comparison-image">
             </div>
 
-            <div class="comparison-handle">
-              <div class="comparison-handle-knob" title="Drag to compare">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+            <!-- 3. INDEPENDENT BADGES (Direct children to prevent clipping) -->
+            <span class="slider-badge slider-badge-before">⚠️ BEFORE: Sludge &amp; Algae</span>
+            <span class="slider-badge slider-badge-after">✨ AFTER: 100% Sanitized</span>
+
+            <!-- 4. COMPARISON HANDLE & KNOB WITH HORIZONTAL ARROWS -->
+            <div class="comparison-handle" id="comparison-handle">
+              <div class="comparison-handle-knob" title="Drag left or right to compare">
+                <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7l-5 5 5 5m8-10l5 5-5 5M3 12h18"/>
+                </svg>
               </div>
             </div>
 
+            <!-- 5. TOUCH / MOUSE INTERACTIVE RANGE SLIDER -->
             <input type="range" min="0" max="100" value="50" id="comparison-range" class="comparison-slider-range" aria-label="Before and After Comparison Slider">
           </div>
         </div>

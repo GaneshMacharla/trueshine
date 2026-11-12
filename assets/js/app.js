@@ -226,17 +226,38 @@
       isDragging = false;
     });
 
-    if (presetBeforeBtn) {
-      presetBeforeBtn.addEventListener('click', () => setSliderPosition(15));
-    }
-    if (presetSplitBtn) {
-      presetSplitBtn.addEventListener('click', () => setSliderPosition(50));
-    }
-    if (presetAfterBtn) {
-      presetAfterBtn.addEventListener('click', () => setSliderPosition(85));
+    function updateActivePreset(activeBtn) {
+      [presetBeforeBtn, presetSplitBtn, presetAfterBtn].forEach(btn => {
+        if (!btn) return;
+        btn.classList.remove('ring-2', 'ring-cyan-400', 'ring-offset-2', 'ring-offset-slate-900', 'font-black');
+      });
+      if (activeBtn) {
+        activeBtn.classList.add('ring-2', 'ring-cyan-400', 'ring-offset-2', 'ring-offset-slate-900', 'font-black');
+      }
     }
 
+    if (presetBeforeBtn) {
+      presetBeforeBtn.addEventListener('click', () => {
+        setSliderPosition(100); // 100% Before (Dirty Sludge)
+        updateActivePreset(presetBeforeBtn);
+      });
+    }
+    if (presetSplitBtn) {
+      presetSplitBtn.addEventListener('click', () => {
+        setSliderPosition(50); // 50/50 Half & Half
+        updateActivePreset(presetSplitBtn);
+      });
+    }
+    if (presetAfterBtn) {
+      presetAfterBtn.addEventListener('click', () => {
+        setSliderPosition(0); // 100% After (Clean Sanitized)
+        updateActivePreset(presetAfterBtn);
+      });
+    }
+
+    // Default: Split 50/50
     setSliderPosition(50);
+    updateActivePreset(presetSplitBtn);
   }
 
   /**
