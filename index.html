@@ -44,6 +44,7 @@
             },
             wa: {
               green: '#25D366',
+              hover: '#20bd5a',
               dark: '#128C7E',
             }
           },
@@ -55,7 +56,7 @@
     }
   </script>
 
-  <!-- Custom Stylesheet (with Scroll Fade In / Fade Out) -->
+  <!-- Custom Stylesheet (with Scroll Fade In / Fade Out & Real WhatsApp Styling) -->
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
@@ -124,9 +125,9 @@
             <span>9059410926</span>
           </a>
 
-          <!-- Book on WhatsApp (9500168488) -->
-          <button data-wa-action="general" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 pulse-green cursor-pointer">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+          <!-- Real WhatsApp Button (9500168488) -->
+          <button data-wa-action="general" class="btn-whatsapp flex items-center gap-2 font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition cursor-pointer pulse-green">
+            <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-5 h-5 drop-shadow">
             <span>Book on WhatsApp</span>
           </button>
         </div>
@@ -164,8 +165,8 @@
       </div>
 
       <div class="space-y-3 pt-6 border-t border-slate-200">
-        <button data-wa-action="general" class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-md">
-          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+        <button data-wa-action="general" class="btn-whatsapp w-full flex items-center justify-center gap-2.5 font-bold py-3 rounded-xl shadow-md">
+          <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-5 h-5 drop-shadow">
           <span>WhatsApp (9500168488)</span>
         </button>
         <a href="tel:+919059410926" class="w-full flex items-center justify-center gap-2 border border-slate-300 text-slate-800 font-bold py-3 rounded-xl">
@@ -199,7 +200,7 @@
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-cyan-500 to-brand-700 underline decoration-cyan-400 decoration-wavy decoration-2">Clean & Hygienic?</span>
             </h1>
 
-            <!-- 3 Visual Snackable Badges (Replaced Paragraph Walls) -->
+            <!-- 3 Visual Snackable Badges -->
             <div class="grid grid-cols-3 gap-2.5 max-w-lg mx-auto lg:mx-0 pt-1">
               <div class="bg-white rounded-xl p-3 border border-slate-200 shadow-sm text-center">
                 <span class="text-xl block mb-0.5">⚡</span>
@@ -238,9 +239,7 @@
               
               <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                 <div class="flex items-center gap-2">
-                  <div class="w-9 h-9 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600 font-black">
-                    💬
-                  </div>
+                  <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-8 h-8 drop-shadow">
                   <div>
                     <h3 class="font-black text-lg text-slate-900">Instant WhatsApp Quote</h3>
                     <p class="text-[11px] text-slate-400">Zero forms. Opens chat with lead details.</p>
@@ -327,9 +326,9 @@
                   <pre id="qq-preview-message" class="text-[11px] text-slate-700 whitespace-pre-wrap font-sans bg-white p-2 rounded border border-slate-200 line-clamp-2">Loading message...</pre>
                 </div>
 
-                <!-- Book on WhatsApp Button (Target 9500168488) -->
-                <button type="button" id="qq-book-btn" class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base py-3 px-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 pulse-green cursor-pointer">
-                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+                <!-- Real WhatsApp Submit Button (Target 9500168488) -->
+                <button type="button" id="qq-book-btn" class="btn-whatsapp w-full flex items-center justify-center gap-2.5 font-black text-sm sm:text-base py-3.5 px-4 rounded-xl cursor-pointer pulse-green">
+                  <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-6 h-6 drop-shadow">
                   <span>Book on WhatsApp Now</span>
                 </button>
 
@@ -358,7 +357,6 @@
           </h2>
         </div>
 
-        <!-- 4 Visual Cards (Low text, high visual impact) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           
           <!-- Pillar 1 -->
@@ -478,12 +476,12 @@
           </div>
         </div>
 
-        <!-- CTA Under Slider -->
+        <!-- Real WhatsApp CTA Under Slider -->
         <div class="text-center fade-reveal">
-          <button data-wa-message="Hi True Shine! I saw your Before & After results. I want to book a water tank cleaning service for my home. Please share availability." class="inline-flex items-center gap-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-xl transition transform hover:scale-105 active:scale-95 cursor-pointer">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
-            <span>Get Your Tank Cleaned Today</span>
-            <span class="text-yellow-300">&rarr;</span>
+          <button data-wa-message="Hi True Shine! I saw your Before & After results. I want to book a water tank cleaning service for my home. Please share availability." class="btn-whatsapp inline-flex items-center gap-3 font-black text-sm sm:text-base px-7 py-4 rounded-xl shadow-xl transition transform hover:scale-105 active:scale-95 cursor-pointer">
+            <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-6 h-6 drop-shadow">
+            <span>Get Your Tank Cleaned (WhatsApp)</span>
+            <span class="text-white">&rarr;</span>
           </button>
         </div>
 
@@ -505,10 +503,8 @@
           </h2>
         </div>
 
-        <!-- 6 Step Visual Grid -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           
-          <!-- Step 1 -->
           <div class="fade-reveal delay-100 bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
             <span class="text-2xl font-black text-brand-600 block mb-1">01</span>
             <span class="bg-brand-50 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded-full block mb-2">Turbo Pump</span>
@@ -516,7 +512,6 @@
             <p class="text-[11px] text-slate-500">Rapid drainage of stagnant dirty water.</p>
           </div>
 
-          <!-- Step 2 -->
           <div class="fade-reveal delay-200 bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
             <span class="text-2xl font-black text-brand-600 block mb-1">02</span>
             <span class="bg-brand-50 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded-full block mb-2">Slurry Pump</span>
@@ -524,7 +519,6 @@
             <p class="text-[11px] text-slate-500">Extracting settled mud and silt deposits.</p>
           </div>
 
-          <!-- Step 3 -->
           <div class="fade-reveal delay-300 bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
             <span class="text-2xl font-black text-brand-600 block mb-1">03</span>
             <span class="bg-brand-50 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded-full block mb-2">150+ Bar</span>
@@ -532,7 +526,6 @@
             <p class="text-[11px] text-slate-500">High-pressure scouring of ceiling & walls.</p>
           </div>
 
-          <!-- Step 4 -->
           <div class="fade-reveal delay-400 bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
             <span class="text-2xl font-black text-brand-600 block mb-1">04</span>
             <span class="bg-brand-50 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded-full block mb-2">Industrial Vac</span>
@@ -540,7 +533,6 @@
             <p class="text-[11px] text-slate-500">Extracting dislodged grime completely dry.</p>
           </div>
 
-          <!-- Step 5 -->
           <div class="fade-reveal delay-500 bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
             <span class="text-2xl font-black text-brand-600 block mb-1">05</span>
             <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full block mb-2">Food-Grade</span>
@@ -548,7 +540,6 @@
             <p class="text-[11px] text-slate-500">Safe sanitization kills fungal spores.</p>
           </div>
 
-          <!-- Step 6 -->
           <div class="fade-reveal delay-500 bg-white rounded-xl p-4 border border-brand-300 ring-2 ring-brand-500/20 shadow text-center">
             <span class="text-2xl font-black text-emerald-600 block mb-1">06</span>
             <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2 py-0.5 rounded-full block mb-2">UV Polish</span>
@@ -586,7 +577,10 @@
               <span class="inline-block text-[10px] font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded mb-3">5,000L – 50,000L+</span>
               <p class="text-[11px] text-slate-500 mb-4">RCC overhead tanks & sumps for societies.</p>
             </div>
-            <span class="w-full bg-brand-600 text-white text-xs font-bold py-2 rounded-xl block group-hover:bg-emerald-600 transition">Get Quote &rarr;</span>
+            <button class="btn-whatsapp w-full text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition">
+              <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-4 h-4 drop-shadow">
+              <span>Get Quote</span>
+            </button>
           </div>
 
           <!-- Card 2: Houses -->
@@ -597,7 +591,10 @@
               <span class="inline-block text-[10px] font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded mb-3">500L – 2,000L</span>
               <p class="text-[11px] text-slate-500 mb-4">Overhead Sintex / PVC tanks & sumps.</p>
             </div>
-            <span class="w-full bg-brand-600 text-white text-xs font-bold py-2 rounded-xl block group-hover:bg-emerald-600 transition">Get Quote &rarr;</span>
+            <button class="btn-whatsapp w-full text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition">
+              <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-4 h-4 drop-shadow">
+              <span>Get Quote</span>
+            </button>
           </div>
 
           <!-- Card 3: Hospitals -->
@@ -608,7 +605,10 @@
               <span class="inline-block text-[10px] font-bold text-teal-600 bg-teal-50 px-2 py-0.5 rounded mb-3">Sterile UV Protocol</span>
               <p class="text-[11px] text-slate-500 mb-4">Medical hygiene compliant certification.</p>
             </div>
-            <span class="w-full bg-brand-600 text-white text-xs font-bold py-2 rounded-xl block group-hover:bg-emerald-600 transition">Get Quote &rarr;</span>
+            <button class="btn-whatsapp w-full text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition">
+              <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-4 h-4 drop-shadow">
+              <span>Get Quote</span>
+            </button>
           </div>
 
           <!-- Card 4: Hotels -->
@@ -619,7 +619,10 @@
               <span class="inline-block text-[10px] font-bold text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded mb-3">Kitchen Clean Water</span>
               <p class="text-[11px] text-slate-500 mb-4">Scheduled off-peak / night cleaning.</p>
             </div>
-            <span class="w-full bg-brand-600 text-white text-xs font-bold py-2 rounded-xl block group-hover:bg-emerald-600 transition">Get Quote &rarr;</span>
+            <button class="btn-whatsapp w-full text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition">
+              <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-4 h-4 drop-shadow">
+              <span>Get Quote</span>
+            </button>
           </div>
 
           <!-- Card 5: Commercial -->
@@ -630,7 +633,10 @@
               <span class="inline-block text-[10px] font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded mb-3">Annual AMC</span>
               <p class="text-[11px] text-slate-500 mb-4">Corporate towers & institutional tanks.</p>
             </div>
-            <span class="w-full bg-brand-600 text-white text-xs font-bold py-2 rounded-xl block group-hover:bg-emerald-600 transition">Get Quote &rarr;</span>
+            <button class="btn-whatsapp w-full text-xs font-bold py-2 rounded-xl flex items-center justify-center gap-1.5 transition">
+              <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-4 h-4 drop-shadow">
+              <span>Get Quote</span>
+            </button>
           </div>
 
         </div>
@@ -701,7 +707,6 @@
               <span id="quiz-gauge-score" class="text-xs font-black text-cyan-300">0% Risk</span>
             </div>
             
-            <!-- Animated Progress Bar -->
             <div class="w-full bg-slate-900 rounded-full h-2.5 mb-3 overflow-hidden">
               <div id="quiz-gauge-bar" class="h-2.5 rounded-full bg-emerald-500 w-1/4 transition-all duration-500"></div>
             </div>
@@ -709,7 +714,8 @@
             <h4 id="quiz-risk-title" class="font-extrabold text-sm sm:text-base text-white mb-1"></h4>
             <p id="quiz-risk-desc" class="text-xs text-slate-400 mb-4"></p>
 
-            <button type="button" id="quiz-wa-btn" class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-2.5 rounded-xl transition cursor-pointer shadow">
+            <button type="button" id="quiz-wa-btn" class="btn-whatsapp w-full flex items-center justify-center gap-2.5 font-bold text-xs sm:text-sm py-2.5 rounded-xl transition cursor-pointer shadow">
+              <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-5 h-5 drop-shadow">
               <span>Book Mechanised Cleaning on WhatsApp</span>
               <span>&rarr;</span>
             </button>
@@ -791,12 +797,12 @@
         <p class="text-cyan-100 text-xs sm:text-sm mb-6">"Don't stress, We will handle the mess." Book directly on WhatsApp in 10 seconds.</p>
 
         <div class="flex flex-wrap items-center justify-center gap-3">
-          <button data-wa-action="general" class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm px-6 py-3 rounded-xl shadow-lg transition transform hover:scale-105 active:scale-95 pulse-green cursor-pointer">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+          <button data-wa-action="general" class="btn-whatsapp flex items-center gap-2.5 font-extrabold text-sm px-7 py-3.5 rounded-xl shadow-lg transition transform hover:scale-105 active:scale-95 pulse-green cursor-pointer">
+            <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-5 h-5 drop-shadow">
             <span>Book via WhatsApp</span>
           </button>
           
-          <a href="tel:+919059410926" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-sm px-5 py-3 rounded-xl transition">
+          <a href="tel:+919059410926" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-sm px-5 py-3.5 rounded-xl transition">
             <span>Call: 9059410926</span>
           </a>
         </div>
@@ -836,9 +842,12 @@
             </div>
 
             <div class="flex-1 bg-slate-900 p-2.5 rounded-xl border border-emerald-900/50 flex items-center justify-between">
-              <div>
-                <span class="text-[10px] text-emerald-400 font-bold block">WHATSAPP</span>
-                <a href="https://wa.me/919500168488" target="_blank" rel="noopener" class="text-xs font-bold text-white hover:text-emerald-400">9500168488</a>
+              <div class="flex items-center gap-2">
+                <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-5 h-5 drop-shadow">
+                <div>
+                  <span class="text-[10px] text-emerald-400 font-bold block">WHATSAPP</span>
+                  <a href="https://wa.me/919500168488" target="_blank" rel="noopener" class="text-xs font-bold text-white hover:text-emerald-400">9500168488</a>
+                </div>
               </div>
               <button data-copy-phone="9500168488" class="text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded hover:text-white">Copy</button>
             </div>
@@ -856,7 +865,7 @@
   </footer>
 
   <!-- =========================================================================
-       12. MOBILE STICKY BOTTOM BAR (50% Call + 50% WhatsApp)
+       12. MOBILE STICKY BOTTOM BAR (50% Call + 50% Real WhatsApp)
        ========================================================================= -->
   <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-2xl p-2 md:hidden mobile-sticky-bar">
     <div class="grid grid-cols-2 gap-2 max-w-lg mx-auto">
@@ -865,18 +874,30 @@
         <span>Call Now</span>
       </a>
 
-      <!-- WhatsApp 9500168488 -->
-      <button data-wa-action="general" class="flex items-center justify-center gap-1.5 bg-emerald-600 text-white font-bold text-xs py-2.5 px-2 rounded-xl active:scale-95 shadow pulse-green cursor-pointer">
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+      <!-- Real WhatsApp Button on Mobile -->
+      <button data-wa-action="general" class="btn-whatsapp flex items-center justify-center gap-2 font-black text-xs py-2.5 px-2 rounded-xl active:scale-95 shadow pulse-green cursor-pointer">
+        <img src="assets/images/whatsapp.svg" alt="WhatsApp" class="w-5 h-5 drop-shadow">
         <span>WhatsApp</span>
       </button>
     </div>
   </div>
 
-  <!-- Floating Desktop WhatsApp Button -->
-  <div class="hidden md:block fixed bottom-6 right-6 z-40">
-    <button data-wa-action="general" class="w-13 h-13 p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-2xl transition transform hover:scale-110 active:scale-95 pulse-green cursor-pointer" aria-label="WhatsApp Chat">
-      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.203c.043.072.043.419-.101.824z"/></svg>
+  <!-- =========================================================================
+       13. FLOATING REAL WHATSAPP APP ICON (Desktop & Tablet)
+       ========================================================================= -->
+  <div class="hidden md:flex fixed bottom-6 right-6 z-40 items-center gap-3">
+    <!-- Chat Tooltip -->
+    <div class="bg-white text-slate-800 text-xs font-bold py-2 px-3.5 rounded-2xl shadow-xl border border-slate-200 flex items-center gap-2 animate-float">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+      <span>Chat with True Shine</span>
+    </div>
+
+    <!-- Official Real WhatsApp Icon Button -->
+    <button data-wa-action="general" class="relative group cursor-pointer focus:outline-none" aria-label="WhatsApp Chat">
+      <span class="absolute inset-0 rounded-full bg-emerald-400 opacity-60 animate-ping"></span>
+      <img src="assets/images/whatsapp.svg" alt="WhatsApp Chat" class="floating-wa-btn relative object-contain">
+      <!-- Unread indicator bubble -->
+      <span class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-white shadow">1</span>
     </button>
   </div>
 
