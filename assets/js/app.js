@@ -1,18 +1,18 @@
 /**
  * True Shine - Professional Water Tank Cleaning Services
- * Client-Side JavaScript (Zero backend, WhatsApp-First UX)
+ * Client-Side JavaScript (WhatsApp-First UX + Scroll Fade Animations + Visual UI)
  */
 
 (function () {
   'use strict';
 
   // Constants
-  const WA_PHONE = '919500168488'; // As instructed: 9500168488 for WhatsApp
+  const WA_PHONE = '919500168488'; // 9500168488 for WhatsApp
   const CALL_PRIMARY = '+919059410926';
   const CALL_SECONDARY = '+919500168488';
 
   /**
-   * Helper: Generate a direct WhatsApp URL with pre-filled message
+   * Helper: Generate direct WhatsApp URL
    */
   function buildWhatsAppUrl(message) {
     const encoded = encodeURIComponent(message.trim());
@@ -20,7 +20,7 @@
   }
 
   /**
-   * Helper: Open WhatsApp link in new tab/app
+   * Helper: Open WhatsApp link
    */
   function openWhatsApp(message) {
     const url = buildWhatsAppUrl(message);
@@ -28,7 +28,7 @@
   }
 
   /**
-   * Show Toast Notification
+   * Toast Notification Utility
    */
   function showToast(text) {
     const toast = document.getElementById('toast-notification');
@@ -46,7 +46,41 @@
   }
 
   /**
-   * 1. Quick Quote Mini-Selector (Hero & Interactive Section)
+   * 1. Scroll-Driven Fade In & Fade Out Animations (IntersectionObserver)
+   */
+  function initScrollAnimations() {
+    const targets = document.querySelectorAll('.fade-reveal, .fade-reveal-left, .fade-reveal-right, .fade-reveal-scale');
+    if (!targets.length) return;
+
+    // Check if IntersectionObserver is supported
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // FADE IN when entering viewport
+          entry.target.classList.add('is-visible');
+        } else {
+          // FADE OUT when leaving viewport (Smooth fade out on scroll)
+          // If element is completely scrolled out of view, remove is-visible
+          if (entry.boundingClientRect.top > 0 || entry.boundingClientRect.bottom < 0) {
+            entry.target.classList.remove('is-visible');
+          }
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    targets.forEach(el => observer.observe(el));
+  }
+
+  /**
+   * 2. Quick Quote Mini-Selector
    */
   function initQuickQuote() {
     const propertySelect = document.getElementById('qq-property');
@@ -90,22 +124,20 @@
         previewMessageEl.textContent = msg;
       }
 
-      // Update estimated time badge
       if (timeEstimateEl && capacitySelect) {
         const val = capacitySelect.value;
         if (val.includes('500L') || val.includes('1,000L')) {
-          timeEstimateEl.textContent = '⏱️ Approx. 45 - 60 Mins';
+          timeEstimateEl.textContent = '⏱️ 45 - 60 Mins';
         } else if (val.includes('2,000L') || val.includes('5,000L')) {
-          timeEstimateEl.textContent = '⏱️ Approx. 60 - 90 Mins';
+          timeEstimateEl.textContent = '⏱️ 60 - 90 Mins';
         } else if (val.includes('10,000L') || val.includes('Commercial')) {
-          timeEstimateEl.textContent = '⏱️ Approx. 2 - 3 Hours (Heavy Duty)';
+          timeEstimateEl.textContent = '⏱️ 2 - 3 Hours';
         } else {
-          timeEstimateEl.textContent = '⏱️ Approx. 60 - 90 Mins';
+          timeEstimateEl.textContent = '⏱️ 60 - 90 Mins';
         }
       }
     }
 
-    // Event listeners for real-time live preview
     const inputs = [propertySelect, tankTypeSelect, capacitySelect, localityInput, dateSelect];
     inputs.forEach(input => {
       if (input) {
@@ -114,22 +146,19 @@
       }
     });
 
-    // Submit / Book Button Click
     bookBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const msg = generateMessage();
       openWhatsApp(msg);
     });
 
-    // Initial preview update
     updatePreview();
   }
 
   /**
-   * 2. General and Segment-Specific WhatsApp Buttons
+   * 3. WhatsApp CTA Bindings
    */
   function initWhatsAppCTAs() {
-    // General Book Now buttons (class or data-action)
     document.querySelectorAll('[data-wa-action="general"]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -138,17 +167,15 @@
       });
     });
 
-    // Segment Specific CTAs ("Who We Serve" cards)
     document.querySelectorAll('[data-wa-segment]').forEach(card => {
       card.addEventListener('click', (e) => {
         e.preventDefault();
         const segment = card.getAttribute('data-wa-segment');
-        let msg = `Hi True Shine! I need a quote for water tank cleaning for our ${segment}. Please share pricing, process, and available time slots.`;
+        const msg = `Hi True Shine! I need a quote for water tank cleaning for our ${segment}. Please share pricing and time slots.`;
         openWhatsApp(msg);
       });
     });
 
-    // Direct Pre-filled action buttons
     document.querySelectorAll('[data-wa-message]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -159,7 +186,7 @@
   }
 
   /**
-   * 3. Interactive Before / After Comparison Slider
+   * 4. Interactive Before / After Comparison Slider
    */
   function initComparisonSlider() {
     const container = document.getElementById('comparison-slider-container');
@@ -176,12 +203,10 @@
       rangeInput.value = clamped;
     }
 
-    // Input range listener (smooth hardware accelerated)
     rangeInput.addEventListener('input', (e) => {
       setSliderPosition(e.target.value);
     });
 
-    // Pointer / Touch support for direct dragging on container
     let isDragging = false;
 
     function updateFromPointer(e) {
@@ -220,7 +245,6 @@
       isDragging = false;
     });
 
-    // Preset buttons
     if (presetBeforeBtn) {
       presetBeforeBtn.addEventListener('click', () => setSliderPosition(15));
     }
@@ -231,12 +255,89 @@
       presetAfterBtn.addEventListener('click', () => setSliderPosition(85));
     }
 
-    // Set initial position to 50%
     setSliderPosition(50);
   }
 
   /**
-   * 4. FAQ Accordion
+   * 5. Visual Water Hygiene Gauge / Quiz
+   */
+  function initHygieneQuiz() {
+    const quizForm = document.getElementById('hygiene-quiz-form');
+    const resultBox = document.getElementById('quiz-result');
+    const riskTitle = document.getElementById('quiz-risk-title');
+    const riskBadge = document.getElementById('quiz-risk-badge');
+    const riskDesc = document.getElementById('quiz-risk-desc');
+    const riskWaBtn = document.getElementById('quiz-wa-btn');
+    const gaugeBar = document.getElementById('quiz-gauge-bar');
+    const gaugeScoreText = document.getElementById('quiz-gauge-score');
+
+    if (!quizForm || !resultBox) return;
+
+    quizForm.addEventListener('change', () => {
+      const q1 = quizForm.elements['q_time'] ? quizForm.elements['q_time'].value : '';
+      const q2 = quizForm.elements['q_odor'] ? quizForm.elements['q_odor'].value : '';
+      const q3 = quizForm.elements['q_color'] ? quizForm.elements['q_color'].value : '';
+
+      if (!q1 || !q2 || !q3) return;
+
+      let score = 0;
+      if (q1 === 'over_6m') score += 35;
+      else if (q1 === 'over_1yr' || q1 === 'never') score += 50;
+      else if (q1 === 'within_3m') score += 10;
+
+      if (q2 === 'yes') score += 30;
+      if (q3 === 'yes') score += 20;
+
+      resultBox.classList.remove('hidden');
+
+      let riskLevel = '';
+      let badgeClass = '';
+      let messageDesc = '';
+      let barColor = '';
+
+      if (score >= 65) {
+        riskLevel = '🚨 CRITICAL CONTAMINATION RISK';
+        badgeClass = 'bg-red-500 text-white';
+        messageDesc = 'High probability of algae biofilm, E. coli & heavy sediment. Immediate 6-stage UV sanitization advised.';
+        barColor = 'bg-red-500';
+      } else if (score >= 35) {
+        riskLevel = '⚠️ MODERATE SEDIMENT ACCUMULATION';
+        badgeClass = 'bg-amber-500 text-white';
+        messageDesc = 'Biofilm and settled silt detected. Preventive mechanised deep cleaning recommended.';
+        barColor = 'bg-amber-500';
+      } else {
+        riskLevel = '✅ NORMAL HYGIENE STATUS';
+        badgeClass = 'bg-emerald-500 text-white';
+        messageDesc = 'Keep scheduled 6-month maintenance active to ensure continuous safe drinking water.';
+        barColor = 'bg-emerald-500';
+      }
+
+      if (riskTitle) riskTitle.textContent = riskLevel;
+      if (riskBadge) {
+        riskBadge.className = `px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase ${badgeClass}`;
+        riskBadge.textContent = score >= 65 ? 'High Hazard' : score >= 35 ? 'Attention Due' : 'Healthy Tank';
+      }
+      if (riskDesc) riskDesc.textContent = messageDesc;
+
+      if (gaugeBar) {
+        gaugeBar.style.width = `${Math.min(100, Math.max(15, score))}%`;
+        gaugeBar.className = `h-2.5 rounded-full transition-all duration-500 ${barColor}`;
+      }
+      if (gaugeScoreText) {
+        gaugeScoreText.textContent = `${score}% Risk`;
+      }
+
+      if (riskWaBtn) {
+        riskWaBtn.onclick = () => {
+          const text = `Hi True Shine! I just completed your Tank Health Assessment (${riskLevel} - ${score}% Risk). Please schedule a mechanised inspection & cleaning.`;
+          openWhatsApp(text);
+        };
+      }
+    });
+  }
+
+  /**
+   * 6. FAQ Accordion
    */
   function initFAQ() {
     const items = document.querySelectorAll('.accordion-item');
@@ -248,7 +349,6 @@
       header.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
 
-        // Close other items
         items.forEach(otherItem => {
           if (otherItem !== item) {
             otherItem.classList.remove('active');
@@ -257,7 +357,6 @@
           }
         });
 
-        // Toggle current item
         if (isActive) {
           item.classList.remove('active');
           const icon = item.querySelector('.accordion-icon');
@@ -269,7 +368,6 @@
         }
       });
 
-      // Open first FAQ by default
       if (index === 0) {
         item.classList.add('active');
         const icon = item.querySelector('.accordion-icon');
@@ -279,7 +377,7 @@
   }
 
   /**
-   * 5. Mobile Navigation Menu Toggle
+   * 7. Mobile Navigation Menu Toggle
    */
   function initMobileMenu() {
     const toggleBtn = document.getElementById('mobile-menu-btn');
@@ -302,13 +400,11 @@
     toggleBtn.addEventListener('click', openMenu);
     if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-    links.forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
+    links.forEach(link => link.addEventListener('click', closeMenu));
   }
 
   /**
-   * 6. Sticky Navbar Shadow & Blur on Scroll
+   * 8. Sticky Navbar Scroll Effect
    */
   function initNavbarScroll() {
     const nav = document.getElementById('main-navbar');
@@ -326,75 +422,11 @@
   }
 
   /**
-   * 7. Interactive Water Hygiene Self-Assessment Quiz
-   */
-  function initHygieneQuiz() {
-    const quizForm = document.getElementById('hygiene-quiz-form');
-    const resultBox = document.getElementById('quiz-result');
-    const riskTitle = document.getElementById('quiz-risk-title');
-    const riskBadge = document.getElementById('quiz-risk-badge');
-    const riskDesc = document.getElementById('quiz-risk-desc');
-    const riskWaBtn = document.getElementById('quiz-wa-btn');
-
-    if (!quizForm || !resultBox) return;
-
-    quizForm.addEventListener('change', () => {
-      const q1 = quizForm.elements['q_time'] ? quizForm.elements['q_time'].value : '';
-      const q2 = quizForm.elements['q_odor'] ? quizForm.elements['q_odor'].value : '';
-      const q3 = quizForm.elements['q_color'] ? quizForm.elements['q_color'].value : '';
-
-      if (!q1 || !q2 || !q3) return; // Wait for full selection
-
-      let score = 0;
-      if (q1 === 'over_6m') score += 3;
-      else if (q1 === 'over_1yr') score += 5;
-      else if (q1 === 'never') score += 5;
-
-      if (q2 === 'yes') score += 4;
-      if (q3 === 'yes') score += 4;
-
-      resultBox.classList.remove('hidden');
-
-      let riskLevel = '';
-      let badgeClass = '';
-      let messageDesc = '';
-
-      if (score >= 6) {
-        riskLevel = '🚨 CRITICAL RISK: Immediate Cleaning Recommended!';
-        badgeClass = 'bg-red-100 text-red-800 border-red-300';
-        messageDesc = 'Your water tank is likely harboring microbial biofilm, algae sludge, and dangerous bacteria (E. coli, coliform). Cleaning and UV sanitization is urgently advised to protect your family from skin rashes and waterborne sickness.';
-      } else if (score >= 3) {
-        riskLevel = '⚠️ MODERATE RISK: Due for Hygiene Service';
-        badgeClass = 'bg-amber-100 text-amber-800 border-amber-300';
-        messageDesc = 'Sediment and biofilm have started settling at the base of your tank. A preventive 6-stage mechanised deep clean will restore pristine water hygiene.';
-      } else {
-        riskLevel = '✅ LOW RISK: Maintain Periodic 6-Month Schedule';
-        badgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-300';
-        messageDesc = 'Great job maintaining your tank! Book your next scheduled maintenance to ensure continuous safe, crystal-clean water supply.';
-      }
-
-      if (riskTitle) riskTitle.textContent = riskLevel;
-      if (riskBadge) {
-        riskBadge.className = `px-3 py-1 rounded-full text-xs font-bold border ${badgeClass}`;
-        riskBadge.textContent = score >= 6 ? 'High Hazard' : score >= 3 ? 'Attention Needed' : 'Good Condition';
-      }
-      if (riskDesc) riskDesc.textContent = messageDesc;
-
-      if (riskWaBtn) {
-        riskWaBtn.onclick = () => {
-          const text = `Hi True Shine! I just completed your Water Tank Hygiene Assessment.\nResult: ${riskLevel}\nI would like to schedule an inspection and cleaning service.`;
-          openWhatsApp(text);
-        };
-      }
-    });
-  }
-
-  /**
-   * 8. Phone Copy & Toast triggers
+   * 9. Clipboard & Toast
    */
   function initPhoneActions() {
     document.querySelectorAll('[data-copy-phone]').forEach(el => {
-      el.addEventListener('click', (e) => {
+      el.addEventListener('click', () => {
         const phone = el.getAttribute('data-copy-phone');
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(phone).then(() => {
@@ -407,15 +439,16 @@
     });
   }
 
-  // Initialize all components once DOM is ready
+  // Initialize
   document.addEventListener('DOMContentLoaded', () => {
+    initScrollAnimations();
     initQuickQuote();
     initWhatsAppCTAs();
     initComparisonSlider();
+    initHygieneQuiz();
     initFAQ();
     initMobileMenu();
     initNavbarScroll();
-    initHygieneQuiz();
     initPhoneActions();
   });
 
